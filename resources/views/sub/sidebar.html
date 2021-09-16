@@ -1,0 +1,32 @@
+<div class="si">
+  <!-- 热门标签 -->
+  <div class="si-each">
+    <div class="si-title">熱門標籤</div>
+    <div class="si-p1">
+      <a href="#">PHP</a><a href="#">JavaScript</a>
+      <a href="#">MySQL</a><a href="#">Python</a>
+      <a href="#">Java</a><a href="#">C++</a>
+      <a href="#">Linux</a><a href="#">shell</a>
+    </div>
+  </div>
+  <!-- 最新文章 -->
+  <div class="si-each">
+    <div class="si-title">最新文章</div>
+    <div class="si-p2">
+      {foreach $article_new as $v}
+        <p><a href="/show?id={$v.id}">{$v.title}</a></p>
+      {/foreach}
+    </div>
+  </div>
+  <!-- 最热文章 -->
+  <div class="si-each">
+    <div class="si-title">
+      <span class="si-p3-top">TOP 10</span> 熱門文章
+    </div>
+    <div class="si-p3">
+      {foreach $article_hot as $v}
+        <p><a href="/show?id={$v.id}">{$v.title}</a></p>
+      {/foreach}
+    </div>
+  </div>
+</div>

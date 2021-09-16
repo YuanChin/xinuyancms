@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/common/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/common/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" href="/static/admin/css/main.css">
+  <script src="/static/common/jquery/1.12.4/jquery.min.js"></script>
+  <script src="/static/common/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/static/common/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="/static/admin/js/main.js"></script>
+  <title>會員登入</title>
+</head>
+<body class="login">
+  <div class="container">
+    <form method="post" action="/admin/login/login" class="j-login">
+      <h1>Xinyuan CMS</h1>
+      <div class="form-group">
+        <input type="text" name="username" class="form-control" placeholder="使用者" required>
+      </div>
+      <div class="form-group">
+        <input type="password" name="password" class="form-control" placeholder="密碼" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="captcha" class="form-control" placeholder="驗證碼" required>
+      </div>
+      <div class="form-group">
+        <div class="login-captcha"><img src="/admin/login/captcha" alt="captcha"></div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-success" value="登入">
+      </div>
+    </form>
+    <div class="main-loading" style="display:none">
+      <div class="dot-carousel"></div>
+    </div>
+  </div>
+  <script>
+    $('.login-captcha img').click(function () {
+      $(this).attr('src', '/admin/login/captcha?_=' + Math.random());
+    });
+    main.ajaxForm('.j-login', function() {
+      location.href = '/admin/index/index';
+    }, function() {
+      $('.login-captcha img').click();
+    });
+  </script>
+</body>
+</html>

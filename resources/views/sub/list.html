@@ -1,0 +1,29 @@
+<div class="al">
+  {if isset($category_name)}
+    <div class="al-title"><h1>{$category_name}</h1></div>
+  {/if}
+  {if $article}
+    {foreach $article as $v}
+      <div class="al-each">
+        <div class="al-info">
+          <a href="/show?id={$v.id}">{$v.title}</a>
+        </div>
+        {if $v.image}
+          <div class="al-img">
+            <a href="/show?id={$v.id}">
+              <img src="/uploads/images/{$v.image}" alt="点击阅读文章">
+            </a>
+          </div>
+        {/if}
+        <div class="al-more">
+          <span>作者：{$v.author} | 發表於：{$v.created_at}</span>
+        </div>
+      </div>
+    {/foreach}
+  {else}
+    <div class="al-message">
+      該欄目內暫時沒有內容。<p><a href="/">點擊返回首頁</a></p>
+    </div>
+  {/if}
+</div>
+<div class="pagelist">{$page_html nofilter}</div>

@@ -1,0 +1,18 @@
+{extends file="layout.html"}
+{block name="content"}
+{if !$id}
+  {include file="sub/slide.html"}
+{/if}
+<div class="main-body">
+<div class="main-wrap">
+  <div class="main-left">
+    <!-- 文章列表 -->
+    {include file="sub/list.html"}
+  </div>
+  <div class="main-right">
+    <!-- 侧边栏 -->
+    {include file="sub/sidebar.html"}
+  </div>
+</div>
+</div>
+{/block}

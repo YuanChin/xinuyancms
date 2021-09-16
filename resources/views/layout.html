@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{$title} - 内容管理系统</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/js/common.js"></script>
+</head>
+<body>
+  <!--页面顶部-->
+  <div class="top">
+    <div class="top-container">
+      <div class="top-logo">
+        <a href="./">
+          <img src="/static/images/logo.png" alt="内容管理系统">
+        </a>
+      </div>
+      <div class="top-nav">
+        <a href="/" class="{if $id == 0}curr{/if}">首頁</a>
+        {foreach $category as $value}
+          <a href="/?id={$value.id}" class="{if $id == $value.id}curr{/if}">{$value.name}</a>
+        {/foreach}
+      </div>
+      <div class="top-toggle jq-toggle-btn"><i></i><i></i><i></i></div>
+    </div>
+  </div>
+  <!--页面内容-->
+  <div class="main">
+    {block name="content"}{/block}
+  </div>
+  <!--页面尾部-->
+  <div class="footer">PHP内容管理系统</div>
+</body>
+</html>

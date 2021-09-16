@@ -1,0 +1,69 @@
+<div class="main-title">
+  <h2>{if $id}修改{else}添加{/if}文章</h2>
+</div>
+<div class="main-section">
+  <form method="post" action="/admin/article/save" class="j-form">
+    <ul class="form-group form-inline">
+      <li>
+        <input type="text" class="form-control" name="title" value="{$article.title}" required>
+        <label>文章標題</label>
+      </li>
+      <li>
+        <select name="cid" class="form-control" style="min-width:196px;">
+          <option value="0">---</option>
+          {foreach $category as $v}
+          <option value="{$v.id}" {if $v.id===$article.cid}selected{/if}>{$v.name} </option>
+          {/foreach}
+        </select>
+        <label>所屬分類</label>
+      </li>
+      <li>
+        <input type="text" class="form-control" name="author" value="{$article.author}" required>
+        <label>作者</label>
+      </li>
+      <li>
+        <label>封面圖</label>
+        <input type="file" name="image">
+      </li>
+      {if $article.image}
+      <li>
+        <ul class="main-imglist">
+          <li>
+            <div class="main-imglist-item">
+              <a href="/uploads/images/{$article.image}" target="_blank"><img src="/uploads/images/{$article.image}"></a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      {/if}
+      <li>
+        <label>文章內容</label>
+        <div><textarea class="j-content" name="content" style="height:200px">{$article.content}</textarea></div>
+      </li>
+      <li>
+        <label><input type="checkbox" name="show" value="1" {if $article.show}checked{/if}> 發布</label>
+      </li>
+      <li>
+        <input type="hidden" name="id" value="{$id}">
+        <input type="submit" value="提交表單" class="btn btn-primary">
+        <a href="/admin/article/index" class="btn btn-default">返回列表</a>
+      </li>
+    </ul>
+  </form>
+</div>
+<script>
+  main.menuActive('article');
+  main.ajaxForm('.j-form', function () {
+    main.content('/admin/article/index');
+  });
+  main.loadJS('/static/admin/editor/ueditor1.4.3.3/ueditor.config.js');
+  main.loadJS('/static/admin/editor/ueditor1.4.3.3/ueditor.all.min.js');
+  main.loadJS('/static/admin/editor/main.editor.js');
+  main.editor($('.j-content'), 'article_edit', function(opt) {
+    opt.UEDITOR_HOME_URL = '/static/admin/editor/ueditor1.4.3.3/'
+  }, function(editor) {
+    $('.j-form').submit(function() {
+      editor.sync();
+    });
+  });
+</script>

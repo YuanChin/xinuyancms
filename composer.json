@@ -1,0 +1,25 @@
+{
+    "name": "cs861/xinyuancms",
+    "description": "",
+
+    "authors": [
+        {
+            "name": "yuanchin",
+            "email": "cs861229503@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Xinyuan\\": "xinyuan/"
+        }
+    },
+    
+    "require": {
+        "smarty/smarty": "^3.1",
+        "ezyang/htmlpurifier": "^4.13",
+        "illuminate/database": "^8.50",
+        "symfony/http-foundation": "^5.3"
+    }
+}
