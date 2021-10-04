@@ -56,7 +56,7 @@
 
 3).在此文件下最後一列新增：
     
-    192.168.10.10   your_domain_name.test
+    127.0.0.1   your_domain_name.test
 
 #### 克隆原碼到本地：
 
