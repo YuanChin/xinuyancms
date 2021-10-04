@@ -35,7 +35,13 @@
 
 #### 環境設置
 
-1). Apache配置
+1). 克隆原碼到本地：
+
+```shell
+git clone git@github.com:YuanChin/xinuyancms.git
+```
+
+2). Apache配置
 ``` shell
 <VirtualHost *:80>
     ServerAdmin example@gmail.com
@@ -50,18 +56,35 @@
     </Directory>
 </VirtualHost>
 ```
-2).在 Windows 下開啟 Hosts 文件
-    
-    文件路徑：C:\Windows\System32\Drivers\etc\hosts
+3).在 Windows 下開啟 Hosts 文件
 
-3).在此文件下最後一列新增：
-    
-    127.0.0.1   your_domain_name.test
-
-#### 克隆原碼到本地：
-
-```shell
-git clone git@github.com:YuanChin/xinuyancms.git
+```
+文件路徑：C:\Windows\System32\Drivers\etc\hosts
 ```
 
-##
+4). 在此文件下最後一列新增：
+
+```
+127.0.0.1   www.your_domain_name.test
+```
+
+5). 安裝依賴
+
+```shell
+composer install
+```
+
+#### 後臺操作
+
+1). 輸入網址
+
+```
+http://www.your_domain_name.test/admin/login/index
+```
+
+2). 後台登入帳號
+
+```
+帳：admin
+密：123456
+```
